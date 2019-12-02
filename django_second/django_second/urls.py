@@ -24,5 +24,5 @@ urlpatterns = [
     # path('book/', book),
     path('book/', views.book),
     path('book/detail/<book_id>/<category_id>/', views.book_detail),
-
+    path('book/author/',views.author_detail),
 ]
