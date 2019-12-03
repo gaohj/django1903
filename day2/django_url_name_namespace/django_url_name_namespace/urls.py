@@ -1,4 +1,4 @@
-"""django_url_include URL Configuration
+"""django_url_name_namespace URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -15,16 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from movie import views
-#http://ip:端口号/book/5/
-#http://ip:端口号/movie/50/
+
 urlpatterns = [
-    path('book/',include('book.urls')),
-    # path('movie/',include('movie.urls')),
-    path('movie/',include([
-        path('',views.movie),
-        path('detail/<int:movie_id>/',views.movie_detail),
-        path('list/',views.movie_list),
-    ])),
-    path('article/',include('article.urls'))
+    path('',include('front.urls')),
+    path('cms1/',include('cms.urls',namespace='cms1')),
+    path('cms2/',include('cms.urls',namespace='cms2'))
 ]

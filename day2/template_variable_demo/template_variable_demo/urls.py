@@ -1,4 +1,4 @@
-"""django_url_include URL Configuration
+"""template_variable_demo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -14,17 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
-from movie import views
-#http://ip:端口号/book/5/
-#http://ip:端口号/movie/50/
+from django.urls import path
+from . import views
+
 urlpatterns = [
-    path('book/',include('book.urls')),
-    # path('movie/',include('movie.urls')),
-    path('movie/',include([
-        path('',views.movie),
-        path('detail/<int:movie_id>/',views.movie_detail),
-        path('list/',views.movie_list),
-    ])),
-    path('article/',include('article.urls'))
+    path('', views.index),
 ]
