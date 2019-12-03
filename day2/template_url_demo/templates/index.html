@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>千锋首页</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">千锋官网</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{% url 'index' %}">首页 <span class="sr-only">(current)</span></a></li>
+                <li><a href="{% url 'book' %}">图书</a></li>
+                <li><a href="{% url 'book_detail' book_id=1 category_id=100 %}">最火的一本书</a></li>
+                <li><a href="{% url 'movie' %}">电影</a></li>
+                <li><a href="{% url 'city' %}">同城</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="{% url 'login' %}?next=/">登录</a></li>
+            </ul>
+        </div><!-- http://192.168.58.40:9000/login/?next=/ -->
+    </div><!-- /.container-fluid -->
+</nav>
+</body>
+</html>

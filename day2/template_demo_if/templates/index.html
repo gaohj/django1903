@@ -28,42 +28,63 @@
 {#            <li> {{ person }}</li>#}
 {#        {% endfor %}#}
 {#    </ul>#}
-    <table>
-        <thead>
-            <tr>
-                <th>序号</th>
-                <th>书名</th>
-                <th>作者</th>
-                <th>价格</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for book in books %}
-                {% if forloop.first %}
-                    <tr style="background: pink">
-                    {% elif forloop.last %}
-                    <tr style="background: green">
-                {% else%}
-                <tr>
-                {% endif %}
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ book.name }}</td>
-                    <td>{{ book.author }}</td>
-                    <td>{{ book.price }}</td>
-                </tr>
-
-            {% endfor %}
-
-        </tbody>
-    </table>
+{#    <table>#}
+{#        <thead>#}
+{#            <tr>#}
+{#                <th>序号</th>#}
+{#                <th>书名</th>#}
+{#                <th>作者</th>#}
+{#                <th>价格</th>#}
+{#            </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#            {% for book in books %}#}
+{#                {% if forloop.first %}#}
+{#                    <tr style="background: pink">#}
+{#                    {% elif forloop.last %}#}
+{#                    <tr style="background: green">#}
+{#                {% else%}#}
+{#                <tr>#}
+{#                {% endif %}#}
+{#                    <td>{{ forloop.counter }}</td>#}
+{#                    <td>{{ book.name }}</td>#}
+{#                    <td>{{ book.author }}</td>#}
+{#                    <td>{{ book.price }}</td>#}
+{#                </tr>#}
+{##}
+{#            {% endfor %}#}
+{##}
+{#        </tbody>#}
+{#    </table>#}
+{#    <ul>#}
+{#    {% for comment in comments %}#}
+{##}
+{#        <li> {{ comment }}</li>#}
+{#     {% empty %}#}
+{#        <li>没有任何内容</li>#}
+{#    {% endfor %}#}
+{#    </ul>#}
     <ul>
-    {% for comment in comments %}
+{#        {% for comment in comments %}#}
+{#            <li>{{ comment }}</li>#}
+{#        {% endfor %}#}
+{#        {{ comments.1 }}#}
+        {% with tt=comments.1 %}
+            <li>{{ tt }}</li>
+            <li>{{ tt }}</li>
+            <li>{{ tt }}</li>
+            <li>{{ tt }}</li>
+        {% endwith %}
+            <li>{{ tt }}</li>
 
-        <li> {{ comment }}</li>
-     {% empty %}
-        <li>没有任何内容</li>
-    {% endfor %}
+        {% with comments.1 as ttt  %}
+            <li>{{ ttt }}</li>
+            <li>{{ ttt }}</li>
+            <li>{{ ttt }}</li>
+            <li>{{ ttt }}</li>
+        {% endwith %}
     </ul>
+
 
 
 </body>
