@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>if标签</title>
+</head>
+<body>
+{#{% if age < 18  %}#}
+{#    <p>未成年不能撸</p>#}
+{#    {% elif age == 18 %}#}
+{#    <p>小撸怡情</p>#}
+{#    {% else %}#}
+{#    <p>樯橹灰飞烟灭</p>#}
+{#{% endif %}#}
+{#    {% if '关二爷' in heros %}#}
+{#        <p>正在待命</p>#}
+{#    {% else %}#}
+{#        <p>关二爷累了</p>#}
+{#    {% endif %}#}
+{#    <ul>#}
+{#        {% for key,value in persons.items%}#}
+{#            <li>{{ key }}/{{ value }}</li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+
+{#  <ul>#}
+{#        {% for person in persons reversed%}#}
+{#            <li> {{ person }}</li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+    <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                {% if forloop.first %}
+                    <tr style="background: pink">
+                    {% elif forloop.last %}
+                    <tr style="background: green">
+                {% else%}
+                <tr>
+                {% endif %}
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.price }}</td>
+                </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+    <ul>
+    {% for comment in comments %}
+
+        <li> {{ comment }}</li>
+     {% empty %}
+        <li>没有任何内容</li>
+    {% endfor %}
+    </ul>
+
+
+</body>
+</html>
