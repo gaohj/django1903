@@ -1,0 +1,12 @@
+{% load my_filter %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义过滤器</title>
+</head>
+<body>
+    {{ value|greet:"是武汉最靓的仔" }}
+    {{ times|time_since }}
+</body>
+</html>

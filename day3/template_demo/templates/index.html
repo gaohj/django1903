@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>spaceless</title>
+    <script src="https://unpkg.com/art-template@4.13.2/lib/template-web.js"></script>
+</head>
+<body>
+{#    {% spaceless %}#}
+{#        <p>#}
+{#            <a href="http://www.qfedu.com">千锋</a>#}
+{#        </p>#}
+{#        <strong>#}
+{##}
+{#            标签和内容之间的空白是不会被去除的#}
+{#        </strong>#}
+{#    {% endspaceless %}#}
+{##}
+{#    {{ info }}#}
+{##}
+{#    {%autoescape off %}#}
+{#        on 开启自动转义  off 关闭自动转义#}
+{#        {{ info }}#}
+{#    {% endautoescape %}#}
+{#{%  verbatim %}#}
+{#<div id="content"></div>#}
+{#<script id="test" type="text/html">#}
+{#{{if isAdmin}}#}
+{##}
+{#<h1>{{title}}</h1>#}
+{#<ul>#}
+{#    {{each list value i}}#}
+{#        <li>索引 {{i + 1}} ：{{value}}</li>#}
+{#    {{/each}}#}
+{#</ul>#}
+{##}
+{#{{/if}}#}
+{#{{$data}}#}
+{#</script>#}
+{#<script>#}
+{#var data = {#}
+{#	title: '基本例子',#}
+{#	isAdmin: true,#}
+{#	list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']#}
+
+{#var html = template('test', data);#}
+{#document.getElementById('content').innerHTML = html;#}
+{#</script>#}
+{#{% endverbatim %}#}
+
+
+</body>
+</html>
