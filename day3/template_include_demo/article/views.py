@@ -20,3 +20,6 @@ def company(request):
         'nextis':nextis
     }
     return render(request,'company.html',context=context)
+
+def book(request):
+    return render(request,'book.html')
