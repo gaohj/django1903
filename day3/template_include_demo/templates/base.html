@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block titles %}{% endblock %}</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://v3.bootcss.com/examples/blog/blog.css" rel="stylesheet">
+    {% block head %}{% endblock %}
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="{% url 'index' %}">主页</a>
+          <a class="blog-nav-item" href="{% url 'school' names='清华' %}">学校</a>
+          <a class="blog-nav-item" href="{% url 'company' %}?next=/">公司</a>
+          <a class="blog-nav-item" href="#">New hires</a>
+          <a class="blog-nav-item" href="#">About</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+{#        这里是header部分#}
+     {% include 'header.html' %}
+      <div class="row">
+          {% block bodies %}
+              我是来自北方的狼,来武汉寻找心爱的红太狼
+          {% endblock %}
+      </div>
+
+    </div>
+
+{#    这里是footer部分#}
+    {% include 'footer.html' %}
+</body>
+</html>
