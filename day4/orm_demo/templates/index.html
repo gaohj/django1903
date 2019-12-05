@@ -11,8 +11,14 @@
                   <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
                 <h2>{{ forloop.counter }}{{ book.1 }}</h2>
                 <p>{{ book.2 }}</p>
-                <p><a class="btn btn-default" href="" role="button">查看详情&raquo;</a></p>
+                <p><a class="btn btn-default" href="{% url 'detail' book_id=book.0 %}" role="button">查看详情&raquo;</a></p>
+                <form action="{% url 'delete' %}" method="post">
+                {% csrf_token %}
+                    <input type="hidden" name="book_id" value="{{ book.0 }}">
+                <input type="submit" value="删除">
+                </form>
               </div>
+
         {% endfor %}
 
 {% endblock %}
