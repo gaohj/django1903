@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章列表</title>
+</head>
+<body>
+    <ul>
+        {% for article in articles  %}
+            <li>{{ article.title }}/{{ article.content }}/{{ article.price }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
