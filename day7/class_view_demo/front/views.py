@@ -21,9 +21,23 @@ class ArticleListView(ListView):
 
     def get_context_data(self,**kwargs):
         context = super(ArticleListView, self).get_context_data()
+        paginator = context.get('paginator')
+        page_obj = context.get('page_obj')
+        # pagination_data = self.get_pagination_data(paginator,page_obj)
+        # context.update(pagination_data) #更新字典内容
         return context
+
+    # def get_pagination_data(self,paginator,page_obj):
+    #     current_page = page_obj.number #当前页码
+    #     num_pages = paginator.num_pages #总共多少页面
+    #
+    #     return {
+    #         'current_page':current_page,
+    #         'num_pages':num_pages
+    #     }
+
     #如果你不想要全部数据 只要部分数据 那么 需要重写
     #get_queryset方法
-    def get_queryset(self):
-        return Article.objects.filter(id__lte=100)
+    # def get_queryset(self):
+    #     return Article.objects.filter(id__lte=100)
 
