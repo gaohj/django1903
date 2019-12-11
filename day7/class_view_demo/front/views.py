@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,reverse
 from django.http import HttpResponse
 from .models import Article
 from django.views.generic import View,TemplateView,ListView
+from django.utils.decorators import method_decorator
 # Create your views here.
+
 def add_article(request):
     articles = []
     for x in range(200):
@@ -85,4 +87,25 @@ class ArticleListView(ListView):
             'current_page':current_page
         }
 
+#web开发中 装饰器是在  response到达浏览器之前调用
+#参数是一个方法
+#真正执行的是wrapper
+def login_required(func):
+    def wrapper(request,*args,**kwargs):
+        username = request.GET.get('username')
+        if username:
+            return func(request,*args,**kwargs)
+        else:
+            return redirect(reverse('front:login'))
+    return wrapper
 
+
+def login(request):
+    return HttpResponse('登录页')
+#给整个类添加装饰器
+#因为每个请求都会走 dispatch 所以name='dispatch '
+#dispatch加了装饰器 整个类都加上了
+@method_decorator([login_required],name='dispatch')
+class ProfileView(View):
+    def get(self,request):
+        return HttpResponse('个人中心页面')
