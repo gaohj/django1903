@@ -5,6 +5,7 @@ from .models import User
 from .forms import MessageBoardForm,MyForm,RegisterForm
 # Create your views here.
 
+
 class IndexView(View):
     #将表单映射到模板上
     def get(self,request):
@@ -57,5 +58,6 @@ class SignupView(View):
             User.objects.create(username=username,password=password1,telephone=telephone)
             return HttpResponse('OK')
         else:
-            print(form.errors.get_json_data())
+            # print(form.errors.get_json_data())
+            print(form.get_errors())
             return HttpResponse('fail')
