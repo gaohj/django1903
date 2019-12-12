@@ -1,0 +1,95 @@
+##  HTML表单   
+
+* input  type 类型  
+
+  * text
+
+  * password
+
+  * radio 
+
+  * checkbox
+
+  * button   <input type="button" name="" value="登录">
+
+  * ```
+    <input type="image" src="https://ps.ssl.qhimg.com/sdmt/221_135_100/t01873c1228eec19232.jpg">  将图片作为按钮 
+    ```
+
+  *   reset   清除表单中的所有数据    
+
+  * submit 
+
+    ```
+    		<input type="reset"  value="重置">
+    		<input type="submit" value="提交">		
+    ```
+
+    
+
+    
+
+    
+
+* 多行文本框    textarea 
+
+  ```
+  <textarea rows="10" cols="20">
+  			
+  rows 文本区内可见的行数  高度
+  columns  文本区内可见的 宽度度  简称 cols
+  </textarea>
+  ```
+
+* 隐藏表单  
+
+  ```
+  业务逻辑需要  比如我们在做修改和删除的时候  我们要单独修改 某一条数据  需要将 该数据的 id 传到后台 但是不能让用户直接看到这个过程  所有就有了隐藏表单    
+  <input type="hidden" name="id">
+  ```
+
+* 下拉菜单  
+
+  ```
+  <select name="address">
+  	<option value="0">郑州</option>
+  </select>
+  ```
+
+  
+
+* 文件上传  
+
+  ```
+  <input type="file" /> 单文件上传  
+  <input type="file" multiple /> 多文件上传 multiple 多文件上传  
+  <input type="file" accept="image/*" /> 只能上传图片   accept 指定上传文件的类型
+  ```
+
+  
+
+HTML5智能表单    ie8 及以下浏览器不支持 html5 新标签  w3c浏览器   
+
+```
+type="email" 限制用户必须输入邮件类型   
+type="url"   限制用户输入的必须是URL类型 
+type="date"  日期类型
+type="datetime" 完整的日期 包含时区
+type="datetime-local" 完整的日期 不包含时区
+type="time" 时间类型
+type="month" 时间类型
+type="week" 时间类型
+type="number" 数值类型
+type="range" 生成一个滑动条 
+type="search" 生成一个搜素表单 
+type="color" 颜色选择表单
+type="tel" 显示电话号码     
+
+<input type="text" name="name" placeholder="请输入您的姓名" required="required">
+placeholder  表单提示信息  
+required="required"  不能为空  
+<input type="checkbox" name="xiaonaonao" disabled="disabled"> 禁用 表单  
+<input type="checkbox" name="xiaonaonao" checked="checked">
+
+```
+
