@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://v3.bootcss.com/favicon.ico">
+
+    <title>{% block title %}
+    
+    {% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="https://v3.bootcss.com/examples/justified-nav/justified-nav.css" rel="stylesheet">
+    {% block head %}{% endblock %}
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+      <div class="masthead">
+        <nav>
+          <ul class="nav nav-justified">
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="#">博客</a></li>
+            <li><a href="#">视频</a></li>
+            {% if front_user %}
+                <li><a href="#">你好,{{ front_user.username }}</a></li>
+                <li><a href="{% url 'signout' %}">注销</a></li>
+            {% else %}
+                <li><a href="{% url 'signin' %}">登录</a></li>
+                 <li><a href="{% url 'signup' %}">注册</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>Marketing stuff!</h1>
+        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+           {% block body %}
+
+           {% endblock %}
+      </div>
+
+      <!-- Site footer -->
+      <footer class="footer">
+        <p>&copy; 2019 Qfedu, Inc.</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+
+  </body>
+</html>

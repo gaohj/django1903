@@ -1,4 +1,4 @@
-"""cookie_session_demo URL Configuration
+"""context_professor_demo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -15,14 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
+from front import views
 
 urlpatterns = [
     path('', views.index,name='index'),
-    path('delete/', views.delete_cookie,name='delete'),
-    path('list/', views.get_cookie,name='list'),
-    path('cms/', views.cms_cookie,name='cms'),
-    path('session/', views.session_view,name='session'),
-    path('get_session/', views.get_session,name='get_session'),
-    path('del_session/', views.delete_session,name='del_session'),
+    path('list/', views.list,name='list'),
 ]

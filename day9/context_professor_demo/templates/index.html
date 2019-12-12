@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ {{ debug }}/ {{ sql_queries }}
+    <ul>
+        {% for user in users %}
+            <li> {{ user.username }}</li>
+        {% endfor %}
+
+    </ul>
+
+</body>
+</html>

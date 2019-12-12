@@ -30,11 +30,19 @@ def session_view(request):
     # expires = datetime(year=2019, month=12, day=12, hour=20, minute=30, second=30)
     # expires = make_aware(expires)
     request.session['username'] = 'chengcheng999999999999999'
+    request.session['id'] = '666666'
     # expires = timedelta(100)
-    # request.session.set_expiry(expires)
+    request.session.set_expiry(1000)
     return HttpResponse('session_view')
 
 def get_session(request):
     username = request.session.get('username')
+    userid = request.session.get('id')
     print(username)
+    print(userid)
     return HttpResponse('获取session成功')
+
+#删除session
+def delete_session(request):
+    res = request.session.pop('username')
+    return HttpResponse(res)
