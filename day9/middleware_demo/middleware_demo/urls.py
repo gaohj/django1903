@@ -1,7 +1,7 @@
-"""context_professor_localhost URL Configuration
+"""middleware_demo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.0/topics/http/urls/
+    https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,13 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf import settings
-from django.conf.urls.static import static
 from front import views
+
 urlpatterns = [
-    path('',views.index,name='index'),
-    path('signup/',views.SignupView.as_view(),name='signup'),
-    path('signin/',views.SigninView.as_view(),name='signin'),
-    path('signout/',views.logout,name='signout'),
-    path('blog/',views.blog,name='blog'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('', views.index,name='index'),
+    path('signin/',views.SigninView.as_view(),name='signin')
+]

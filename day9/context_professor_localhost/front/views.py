@@ -50,3 +50,6 @@ class SigninView(View):
 def logout(request):
     request.session.flush()
     return redirect(reverse('index'))
+
+def blog(request):
+    return render(request,'blog.html')

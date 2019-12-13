@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+  这是博客页面 
+    {{ request.path }}
+    <img src="{{ MEDIA_URL }}pengcheng.jpg" alt="忧郁小王子">
+    {{ debug }} {{ sql_queries }}
+{% endblock %}

@@ -8,6 +8,7 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="description" content="">
     <meta name="author" content="">
+    {% block head %}{% endblock %}
     <link rel="icon" href="https://v3.bootcss.com/favicon.ico">
 
     <title>{% block title %}
@@ -18,7 +19,7 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="https://v3.bootcss.com/examples/justified-nav/justified-nav.css" rel="stylesheet">
-    {% block head %}{% endblock %}
+
   </head>
 
   <body>
@@ -31,7 +32,7 @@
         <nav>
           <ul class="nav nav-justified">
             <li class="active"><a href="#">首页</a></li>
-            <li><a href="#">博客</a></li>
+            <li><a href="{% url 'blog' %}">博客</a></li>
             <li><a href="#">视频</a></li>
             {% if front_user %}
                 <li><a href="#">你好,{{ front_user.username }}</a></li>
