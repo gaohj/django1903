@@ -4,6 +4,12 @@ from .models import User,Article
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import ContentType,Permission,Group
 from .forms import LoginForm
+from django.contrib.auth.decorators import login_required,permission_required
+
+
+@login_required(login_url='/login/')
+def profiles(request):
+    return HttpResponse("这是个人中心界面")
 
 # Create your views here.
 def inherit_view(request):
@@ -67,3 +73,37 @@ def add_permission(request):
     #接下来在权限表中添加权限即可
     permission = Permission.objects.create(codename="black_aritle",name="拉黑文章",content_type=content_type)
     return HttpResponse("添加权限成功")
+
+def operate_permission(request):
+    user = User.objects.first() #查出用户
+    # content_type = ContentType.objects.get_for_model(Article)
+    # permissions = Permission.objects.filter(content_type=content_type)
+    # #for permission in permissions:
+    #     print(permission)
+    #     user.user_permissions.add(permission)
+    # user.user_permissions.set(permissions)
+    # user.save()
+    # user.user_permissions.clear()
+    # user.user_permissions.remove(*permissions)
+    if user.has_perm('front.black_aritle'):
+        print("具有拉黑文章的权限")
+    else:
+        print("没有拉黑文章的权限")
+    print(user.get_all_permissions())
+    return HttpResponse("操作权限成功")
+
+
+#权限装饰器
+@permission_required(['front.add_article','front.view_article'],login_url='/login/',raise_exception=False) #如果为True
+#会显示 403 forbidden
+#false 直接跳转到登录界面
+def add_article(request):
+    # if request.user.is_authenticated:
+#     #     print("已经登录了")
+#     #     if request.user.has_perm("front.add_article"):
+#     #         return HttpResponse("这是添加文章的界面")
+#     #     else:
+#     #         return HttpResponse("您没有访问文章的权限",status=403)
+#     # else:
+#     #     return redirect(reverse('login'))
+    return HttpResponse("这是添加文章的界面 来到这里证明你登陆了 还有这个添加文章的权限")
