@@ -1,4 +1,4 @@
-"""authenticate_demo URL Configuration
+"""User_demo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -16,9 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from front import views
+
 urlpatterns = [
-    path('', views.index),
-    # path('black_list/', views.proxy_view,name='blacklist'),
-    # path('one_view/', views.one_view,name='one_view'),
-    path('inherit_view/', views.inherite_view,name='inherit_view'),
+    path('inherit/', views.inherit_view,name='inherit'),
 ]
