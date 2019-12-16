@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import PermissionsMixin,BaseUserManager
 from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth import get_user_model
 # Create your models here.
 
 class UserManager(BaseUserManager):
@@ -37,3 +38,13 @@ class User(AbstractBaseUser,PermissionsMixin):
     def get_full_name(self):
         return self.username
 
+
+class Article(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    author = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
+
+    class Meta:
+        permissions = [
+            ('view_article','查看文章的权限')
+        ]

@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect,reverse
 from django.http import HttpResponse
-from .models import User
+from .models import User,Article
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.models import ContentType,Permission,Group
 from .forms import LoginForm
+
 # Create your views here.
 def inherit_view(request):
     user = User.objects.create_user(telephone='18888888886',username='chengcheng1',password='123321',email='cheng1@163.com')
@@ -49,3 +51,19 @@ def my_login(request):
 def my_logout(request):
     logout(request)
     return HttpResponse('退出登录成功')
+from django.contrib.auth.decorators import login_required
+
+
+@login_required(login_url='/login/')
+def profile_demo(request):
+    return HttpResponse("个人中心")
+
+
+def add_permission(request):
+    # 因为django 在权限是针对 模型级别
+    # 获取模型对应的content_type  id
+    content_type = ContentType.objects.get_for_model(Article)
+    print(content_type)
+    #接下来在权限表中添加权限即可
+    permission = Permission.objects.create(codename="black_aritle",name="拉黑文章",content_type=content_type)
+    return HttpResponse("添加权限成功")

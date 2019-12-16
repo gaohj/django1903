@@ -21,4 +21,6 @@ urlpatterns = [
     path('inherit/', views.inherit_view,name='inherit'),
     path('login/', views.my_login,name='login'),
     path('logout/', views.my_logout,name='logout'),
+    path('profile/', views.profile_demo,name='profile'),
+    path('add_permission/', views.add_permission,name='add_permission'),
 ]
