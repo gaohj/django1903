@@ -19,4 +19,8 @@ from front import views
 
 urlpatterns = [
     path('', views.index,name='index'),
+    path('logout/', views.logout,name='logout'),
+    path('register/', views.RegisterView.as_view(),name='register'),
+    path('login/', views.LoginView.as_view(),name='login'),
+    path('transfer/', views.TransferView.as_view(),name='transfer'),
 ]

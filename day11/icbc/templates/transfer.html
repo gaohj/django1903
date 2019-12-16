@@ -3,6 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <title>中国工商银行转账页面</title>
+   <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+        function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+        var myajax = {
+            'get': function (args) {
+                args['method'] = 'get';
+                this.ajax(args);
+            },
+            'post': function (args) {
+                args['method'] = 'post';
+                this._ajaxSetup();
+                this.ajax(args);
+            },
+            'ajax': function (args) {
+                $.ajax(args);
+            },
+            '_ajaxSetup': function () {
+                $.ajaxSetup({
+                    beforeSend: function(xhr, settings) {
+                        if (!/^(GET|HEAD|OPTIONS|TRACE)$/.test(settings.type) && !this.crossDomain) {
+                            xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+                        }
+                    }
+                });
+        }
+
+    };
+        $(function () {
+            $("#submits").click(function (event) {
+                event.preventDefault(); //去除默认点击事件
+                var email = $("input[name='email']").val()
+                var money = $("input[name='money']").val()
+
+                myajax.post({
+                    'url':'/transfer/',
+                    'data':{
+                        'email':email,
+                        'money':money
+                    },
+                    'success':function (data) {
+                        console.log(data)
+                    },
+                     'fail':function (error) {
+                        console.log(error)
+                    },
+                })
+            })
+
+        })
+
+
+    </script>
 </head>
 <body>
 <h1>转装页面</h1>
