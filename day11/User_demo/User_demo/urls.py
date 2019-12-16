@@ -18,6 +18,7 @@ from django.urls import path
 from front import views
 
 urlpatterns = [
+    path('', views.index,name='index'),
     path('inherit/', views.inherit_view,name='inherit'),
     path('login/', views.my_login,name='login'),
     path('logout/', views.my_logout,name='logout'),
@@ -26,4 +27,6 @@ urlpatterns = [
     path('add_article/', views.add_article,name='add_article'),
     path('add_permission/', views.add_permission,name='add_permission'),
     path('operate_permission/', views.operate_permission,name='operate_permission'),
+    path('operate_group/', views.operate_group,name='operate_group'),
+
 ]

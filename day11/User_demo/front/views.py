@@ -5,7 +5,10 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import ContentType,Permission,Group
 from .forms import LoginForm
 from django.contrib.auth.decorators import login_required,permission_required
-
+def index(request):
+    user = User.objects.first()
+    print(user.get_all_permissions())
+    return render(request,'index.html')
 
 @login_required(login_url='/login/')
 def profiles(request):
@@ -107,3 +110,35 @@ def add_article(request):
 #     # else:
 #     #     return redirect(reverse('login'))
     return HttpResponse("这是添加文章的界面 来到这里证明你登陆了 还有这个添加文章的权限")
+
+
+def operate_group(request):
+    # group = Group.objects.create(name="运营") #创建分组
+    # content_type = ContentType.objects.get_for_model(Article)
+    # permissions = Permission.objects.filter(content_type=content_type)
+    # group.permissions.set(permissions) #给组添加权限
+    # group.save()
+
+    # group = Group.objects.filter(name="运营").first() #组
+    # user = User.objects.first() #用户
+    # user.groups.add(group)#将用户添加到指定的组里
+    # user.save()
+
+    user = User.objects.first()
+    # permissions1 = user.get_all_permissions()
+    # permissions = user.get_group_permissions()
+    # print(permissions1,permissions)
+    # if user.has_perm('front.add_article'):
+    #     print("具有添加文章的权限")
+    # else:
+    #     print("没有添加文章的权限")
+    # if user.has_perms(['front.add_article','front.view_article']):
+    #     print("具有添加文章的权限")
+    # else:
+    #     print("没有添加文章的权限")
+    if user.has_perm('front.black_aritle'):
+        print("具有拉黑文章的权限")
+    else:
+        print("没有拉黑文章的权限")
+    return HttpResponse("操作组权限")
+
