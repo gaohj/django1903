@@ -19,4 +19,6 @@ from front import views
 
 urlpatterns = [
     path('inherit/', views.inherit_view,name='inherit'),
+    path('login/', views.my_login,name='login'),
+    path('logout/', views.my_logout,name='logout'),
 ]

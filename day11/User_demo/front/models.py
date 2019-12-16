@@ -4,24 +4,24 @@ from django.contrib.auth.base_user import AbstractBaseUser
 # Create your models here.
 
 class UserManager(BaseUserManager):
-    def _create_user(self, telephone,username,password, **kwargs):
+    def _create_user(self, telephone,username,password,email, **kwargs):
         if not telephone:
             raise ValueError('必须传手机号码')
         if not password:
             raise ValueError('必须传密码')
-        user = self.model(telephone=telephone,username=username)
+        user = self.model(telephone=telephone,username=username,email=email)
         user.set_password(password)
         user.save()
         return user
 
-    def create_user(self,telephone,username, password, **kwargs):
+    def create_user(self,telephone,username, password,email,**kwargs):
         kwargs['is_superuser'] = False
-        return self._create_user(telephone=telephone,username=username,password=password,**kwargs)
+        return self._create_user(telephone=telephone,username=username,password=password,email=email,**kwargs)
 
-    def create_superuser(self, telephone,username,password, **kwargs):
+    def create_superuser(self, telephone,username,password, email,**kwargs):
         kwargs['is_staff']= True
         kwargs['is_superuser'] = True
-        return self._create_user(telephone=telephone, username=username, password=password, **kwargs)
+        return self._create_user(telephone=telephone, username=username, password=password, email=email,**kwargs)
 
 
 class User(AbstractBaseUser,PermissionsMixin):
