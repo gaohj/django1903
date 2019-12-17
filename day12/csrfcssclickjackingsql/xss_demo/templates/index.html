@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {% for comment in comments %}
+        <li>{{ comment.content|safe }}</li>
+    {% endfor %}
+
+</ul>
+<form action="{% url 'comment' %}" method="post">
+    {% csrf_token %}
+    <textarea name="content" id="" cols="30" rows="10"></textarea>
+    <p>
+        <input type="submit" value="发表">
+    </p>
+</form>
+</body>
+</html>
