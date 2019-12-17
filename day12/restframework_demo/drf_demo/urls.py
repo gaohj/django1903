@@ -18,4 +18,5 @@ from django.urls import path,include
 from apps.urls import router
 urlpatterns = [
     path('api/',include(router.urls)),
+    path('apis/',include('apps.urls'))
 ]
