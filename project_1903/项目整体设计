@@ -24,3 +24,58 @@
 
 #应用管理
 所有的应用集中放到一起  我们把它放到 apps中
+
+
+├── project_1903
+│   ├── apps
+│   │   ├── cms
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── __init__.py
+│   │   │   ├── migrations
+│   │   │   ├── models.py
+│   │   │   ├── tests.py
+│   │   │   └── views.py
+│   │   ├── __init__.py
+│   │   ├── news
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── __init__.py
+│   │   │   ├── migrations
+│   │   │   ├── models.py
+│   │   │   ├── tests.py
+│   │   │   └── views.py
+│   │   └── projectauth
+│   │       ├── admin.py
+│   │       ├── apps.py
+│   │       ├── __init__.py
+│   │       ├── migrations
+│   │       ├── models.py
+│   │       ├── tests.py
+│   │       └── views.py
+│   ├── front
+│   │   ├── dist
+│   │   │   ├── css
+│   │   │   ├── images
+│   │   │   └── js
+│   │   ├── src
+│   │   │   ├── css
+│   │   │   ├── images
+│   │   │   └── js
+│   │   └── templates
+│   │       ├── base
+│   │       ├── cms
+│   │       └── news
+│   ├── manage.py
+│   ├── project_1903
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-36.pyc
+│   │   │   └── settings.cpython-36.pyc
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   ├── wsgi.py
+│   │   └── 基础配置
+│   └── 项目整体设计
+└── README.md
+
